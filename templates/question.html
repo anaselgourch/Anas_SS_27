@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hidden {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 2s, visibility 2s;
+    }
+
+    .visible {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 2s, visibility 2s;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen text-center text-white">
+  <!-- Video Background -->
+  <video class="video-background" autoplay loop>
+    <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Content (Initially Hidden) -->
+  <h1 id="question" class="text-4xl font-bold mb-6 hidden">Will you be my Valentine? 🥰</h1>
+  <div id="buttons" class="flex space-x-4 hidden">
+    <form action="/response" method="POST">
+      <input type="hidden" name="response" value="Yes">
+      <button class="bg-green-500 px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-green-600 transition-all">
+        Yes! (Duh 💖)
+      </button>
+    </form>
+    <form action="/response" method="POST">
+      <input type="hidden" name="response" value="No">
+      <button class="bg-red-500 px-6 py-3 text-lg font-semibold rounded-lg shadow-lg hover:bg-red-600 transition-all">
+        No
+      </button>
+    </form>
+  </div>
+
+  <script>
+    // Show content after 3 seconds
+    setTimeout(function() {
+      document.getElementById("question").classList.remove("hidden");
+      document.getElementById("question").classList.add("visible");
+      document.getElementById("buttons").classList.remove("hidden");
+      document.getElementById("buttons").classList.add("visible");
+    }, 500); // Adjust the time (in milliseconds) as needed
+  </script>
+</body>
+</html>

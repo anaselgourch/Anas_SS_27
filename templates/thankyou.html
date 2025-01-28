@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      text-align: center;
+      color: white;
+    }
+
+    .thank-you-image {
+      max-width: 50%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen">
+
+  <!-- Thank You Message and Image -->
+  <h1 class="text-4xl font-bold mb-6">Thank You for Your Response! 🥰</h1>
+  <!-- Updated image source to the static folder -->
+  <img src="{{ url_for('static', filename='image.jpg') }}" alt="Thank You" class="thank-you-image" />
+  <p class="text-lg">I appreciate your answer. Stay awesome! 💖</p>
+
+</body>
+</html>

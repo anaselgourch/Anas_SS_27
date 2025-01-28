@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine?</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: url("{{ url_for('static', filename='bg.gif') }}") no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen text-center text-white">
+  <h1 class="text-4xl font-bold mb-4">Hi, Saida! ❤️</h1>
+  <p class="text-lg mb-8">I have a very special question for you...</p>
+  <a href="{{ url_for('response') }}">
+    <button class="bg-pink-500 px-8 py-3 text-xl font-semibold rounded-lg shadow-lg hover:bg-pink-600 transition-all">
+      Click Here
+    </button>
+  </a>
+</body>
+</html>
